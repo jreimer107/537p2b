@@ -276,7 +276,7 @@ void scheduler(void) {
     }
 
     //Get winner ticket number
-    int winner = getRand() % totalTickets;
+    int winner = getRand(totalTickets);
 
     //Loop until the sum of ticket values is > the winner
     int counter = 0;
@@ -503,9 +503,8 @@ void getpstat(struct pstat *ptr) {
 }
 
 //Linear Feedback Shift Register (rng)
-unsigned int lfsr = 0xACE1u;
-unsigned bit;
 unsigned int getRand() {
-  bit = ((lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5)) & 1;
-  return lfsr = (lfsr >> 1) | (bit << 15);
+  static int seed = 89536;
+  seed = (5 * seed + 7) % limit;
+  return seed;
 }
