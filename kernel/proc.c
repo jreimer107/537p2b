@@ -267,7 +267,8 @@ void scheduler(void) {
 
     //Get total number of tickets
     int totalTickets = 0;
-    for(int i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
+    int i;
+    for(i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
       if(p->state == UNUSED) continue;
       totalTickets += p->tickets;
     }
@@ -277,8 +278,8 @@ void scheduler(void) {
 
     //Loop until the sum of ticket values is > the winner
     int counter = 0;
-    for(int i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
-      counter = counter + pst->tickets[i];
+    for(i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
+      counter = counter + p->tickets;
       if (counter > winner) break;
       //proc = 0;
     }
@@ -295,17 +296,6 @@ void scheduler(void) {
     proc = 0;
     release(&ptable.lock);
   }
-
-
-
-
-
-
-
-
-
-
-
 
 /*
   for(;;){
@@ -497,7 +487,8 @@ procdump(void)
 
 void getpstat(struct pstat *ptr) {
   struct proc *p;
-  for (int i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
+  int i;
+  for (i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
     if (p->state == UNUSED) {
       ptr->inuse[i] = 0;
       continue;
