@@ -414,7 +414,7 @@ int sys_settickets(void) {
 int sys_getpinfo(void) {
   struct pstat *ptr;
   //If pointer null or bad return -1, 0 otherwise
-  if (argptr(0, (void*)&ptr, sizeof(ptr)) < 0) return -1;
+  if (argptr(0, (void*)&ptr, sizeof(ptr)) < 0 || ptr == NULL) return -1;
   getpstat(ptr);
   return 0;
 }

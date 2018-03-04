@@ -99,6 +99,8 @@ userinit(void)
   p->cwd = namei("/");
 
   p->state = RUNNABLE;
+  p->tickets = 1;
+  p->ticks = 0;
   release(&ptable.lock);
 }
 
@@ -490,8 +492,8 @@ void getpstat(struct pstat *ptr) {
   int i;
   for (i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
     if (p->state == UNUSED) {
-      ptr->inuse[i] = 0;
-      continue;
+        ptr->inuse[i] = 0;
+	continue;
     }
     ptr->inuse[i] = 1;
     ptr->tickets[i] = p->tickets;
