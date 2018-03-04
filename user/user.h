@@ -28,8 +28,8 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int getreadcount(void);
-int settickets(int number);
-int getpinfo(struct pstat *);
+int settickets(int);
+int getpinfo(struct pstat*);
 
 // user library functions (ulib.c)
 int stat(char*, struct stat*);
