@@ -503,7 +503,7 @@ void getpstat(struct pstat *ptr) {
 }
 
 //Linear Feedback Shift Register (rng)
-unsigned int getRand() {
+int getRand(int limit) {
   static int seed = 89536;
   seed = (5 * seed + 7) % limit;
   return seed;

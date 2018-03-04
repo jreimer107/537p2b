@@ -89,6 +89,6 @@ struct proc {
 //   expandable heap
 
 void getpstat(struct pstat *ptr);
-unsigned int getRand(int limit);
+int getRand(int limit);
 
 #endif // _PROC_H_
