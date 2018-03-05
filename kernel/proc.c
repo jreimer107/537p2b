@@ -50,8 +50,8 @@ found:
 
   // Allocate kernel stack if possible.
   if((p->kstack = kalloc()) == 0){
-    p->state = UNUSED;
-    return 0;
+		p->state = UNUSED;
+		return 0;
   }
   sp = p->kstack + KSTACKSIZE;
 
@@ -268,25 +268,44 @@ void scheduler(void) {
     acquire(&ptable.lock);
 
     //Get total number of tickets
-    int totalTickets = 0;
+    unsigned int totalTickets = 0;
     int i;
     for(i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
-      if(p->state == UNUSED) continue;
+      if(p->state != RUNNABLE) continue;
       totalTickets += p->tickets;
     }
+    if(!totalTickets){
+	release(&ptable.lock);
+	continue;
+    }
 
-    //Get winner ticket number
-    int winner = getRand(totalTickets);
+    //Generate winner ticket number
+    unsigned int winner = getRand() % totalTickets;
 
     //Loop until the sum of ticket values is > the winner
     int counter = 0;
-    for(i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
-      counter = counter + p->tickets;
-      if (counter > winner) break;
-      //proc = 0;
+    i = 0;
+    p = ptable.proc;
+    while(1) {
+      	if(p->state == RUNNABLE)
+		counter = counter + p->tickets;
+	if (counter > winner) break;
+	p++;
+	i++;
+	if(i == NPROC) {
+		p = ptable.proc;
+		i = 0;
+	}
     }
-    p->ticks++;
+
+		//Check if process is ok to run
+    if (p->state != RUNNABLE) {
+	release(&ptable.lock);
+	continue;
+    }
+    
     //Schedule winner
+    p->ticks++;
     proc = p;
     switchuvm(p);
     p->state = RUNNING;
@@ -493,6 +512,9 @@ void getpstat(struct pstat *ptr) {
   for (i = 0, p = ptable.proc; p < &ptable.proc[NPROC]; p++, i++) {
     if (p->state == UNUSED) {
         ptr->inuse[i] = 0;
+	ptr->tickets[i] = 0;
+	ptr->pid[i] = 0;
+	ptr->ticks[i] = 0;
 	continue;
     }
     ptr->inuse[i] = 1;
@@ -501,8 +523,26 @@ void getpstat(struct pstat *ptr) {
     ptr->ticks[i] = p->ticks;
   }
 }
-int seed = 89536;
-int getRand(int limit) {
-  seed = (5 * seed + 7) % limit;
-  return seed;
+
+/*
+unsigned int lfsr = 0xDF33ACE1u;
+unsigned bit;
+
+unsigned getRand()  {
+	bit  = ((lfsr >> 0) ^ (lfsr >> 10) ^ (lfsr >> 30) ^ (lfsr >> 31) ) & 1;
+	return lfsr =  (lfsr >> 1) | (bit << 31);
+}
+//*/
+
+static unsigned long int next = 1;
+
+int getRand() // RAND_MAX assumed to be 32767 
+{
+    next = next * 1103515245 + 12345;
+    return (unsigned int)(next/17) % 32768394;
+}
+
+void srand(unsigned int seed)
+{
+    next = seed;
 }
