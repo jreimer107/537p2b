@@ -262,7 +262,6 @@ wait(void)
 void scheduler(void) {
   struct proc *p;
 
-  //Mine
   while (1) {
     sti();
     acquire(&ptable.lock);
@@ -287,8 +286,7 @@ void scheduler(void) {
     i = 0;
     p = ptable.proc;
     while(1) {
-      	if(p->state == RUNNABLE)
-		counter = counter + p->tickets;
+      	if(p->state == RUNNABLE) counter +=  p->tickets;
 	if (counter > winner) break;
 	p++;
 	i++;
@@ -298,7 +296,7 @@ void scheduler(void) {
 	}
     }
 
-		//Check if process is ok to run
+    //Check if process is ok to run
     if (p->state != RUNNABLE) {
 	release(&ptable.lock);
 	continue;
@@ -317,35 +315,6 @@ void scheduler(void) {
     proc = 0;
     release(&ptable.lock);
   }
-
-/*
-  for(;;){
-    // Enable interrupts on this processor.
-    sti();
-
-    // Loop over process table looking for process to run.
-    acquire(&ptable.lock);
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
-        continue;
-
-      // Switch to chosen process.  It is the process's job
-      // to release ptable.lock and then reacquire it
-      // before jumping back to us.
-      proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
-      swtch(&cpu->scheduler, proc->context);
-      switchkvm();
-
-      // Process is done running for now.
-      // It should have changed its p->state before coming back.
-      proc = 0;
-    }
-    release(&ptable.lock);
-
-  }
-//*/
 }
 
 // Enter scheduler.  Must hold only ptable.lock
@@ -524,25 +493,23 @@ void getpstat(struct pstat *ptr) {
   }
 }
 
-/*
-unsigned int lfsr = 0xDF33ACE1u;
+//*
+unsigned long int lfsr = 0xDF33ACE1u;
 unsigned bit;
 
-unsigned getRand()  {
+unsigned long int getRand()  {
 	bit  = ((lfsr >> 0) ^ (lfsr >> 10) ^ (lfsr >> 30) ^ (lfsr >> 31) ) & 1;
-	return lfsr =  (lfsr >> 1) | (bit << 31);
+	lfsr =  (lfsr >> 1) | (bit << 31);
+	return lfsr;
 }
 //*/
 
+/*
 static unsigned long int next = 1;
 
-int getRand() // RAND_MAX assumed to be 32767 
+unsigned long int getRand() // RAND_MAX assumed to be 32767 
 {
     next = next * 1103515245 + 12345;
-    return (unsigned int)(next/17) % 32768394;
+    return (next/17) % 32768394;
 }
-
-void srand(unsigned int seed)
-{
-    next = seed;
-}
+//*/

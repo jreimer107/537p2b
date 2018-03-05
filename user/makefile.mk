@@ -4,6 +4,7 @@ USER_PROGS := \
 	cat\
 	echo\
 	forktest\
+	graphMaker\
 	grep\
 	init\
 	kill\

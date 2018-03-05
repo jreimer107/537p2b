@@ -2,6 +2,7 @@
 #define _USER_H_
 
 #include "pstat.h"
+#include "types.h"
 
 struct stat;
 

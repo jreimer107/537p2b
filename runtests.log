@@ -8,9 +8,7 @@ build xv6 using make
 **********************************************************************
 Trying to clean project using make clean
 make clean
-gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 \
-	-M -MG kernel/proc.c -MF kernel/proc.d -MT kernel/proc.d -MT kernel/proc.o
-rm -rf kernel/bio.o kernel/console.o kernel/exec.o kernel/file.o kernel/fs.o kernel/ide.o kernel/ioapic.o kernel/kalloc.o kernel/kbd.o kernel/lapic.o kernel/main.o kernel/mp.o kernel/picirq.o kernel/pipe.o kernel/proc.o kernel/spinlock.o kernel/string.o kernel/swtch.o kernel/syscall.o kernel/sysfile.o kernel/sysproc.o kernel/timer.o kernel/trapasm.o kernel/trap.o kernel/uart.o kernel/vectors.o kernel/vm.o kernel/bootmain.o kernel/bootasm.o kernel/multiboot.o kernel/data.o kernel/bootother.o kernel/initcode.o kernel/bio.d kernel/console.d kernel/exec.d kernel/file.d kernel/fs.d kernel/ide.d kernel/ioapic.d kernel/kalloc.d kernel/kbd.d kernel/lapic.d kernel/main.d kernel/mp.d kernel/picirq.d kernel/pipe.d kernel/proc.d kernel/spinlock.d kernel/string.d kernel/swtch.d kernel/syscall.d kernel/sysfile.d kernel/sysproc.d kernel/timer.d kernel/trapasm.d kernel/trap.d kernel/uart.d kernel/vectors.d kernel/vm.d kernel/bootmain.d kernel/bootasm.d kernel/multiboot.d kernel/data.d kernel/bootother.d kernel/initcode.d kernel/vectors.S kernel/bootblock kernel/bootblock.out kernel/bootother.out kernel/initcode.out kernel/kernel bootother initcode xv6.img user/bin user/cat user/echo user/forktest user/grep user/init user/kill user/ln user/ls user/mkdir user/rm user/sh user/stressfs user/tester user/usertests user/wc user/zombie user/cat.o user/echo.o user/forktest.o user/grep.o user/init.o user/kill.o user/ln.o user/ls.o user/mkdir.o user/rm.o user/sh.o user/stressfs.o user/tester.o user/usertests.o user/wc.o user/zombie.o user/ulib.o user/usys.o user/printf.o user/umalloc.o user/cat.d user/echo.d user/forktest.d user/grep.d user/init.d user/kill.d user/ln.d user/ls.d user/mkdir.d user/rm.d user/sh.d user/stressfs.d user/tester.d user/usertests.d user/wc.d user/zombie.d user/ulib.d user/usys.d user/printf.d user/umalloc.d tools/mkfs tools/mkfs.o tools/mkfs.d fs fs.img .gdbinit .bochsrc dist
+rm -rf kernel/bio.o kernel/console.o kernel/exec.o kernel/file.o kernel/fs.o kernel/ide.o kernel/ioapic.o kernel/kalloc.o kernel/kbd.o kernel/lapic.o kernel/main.o kernel/mp.o kernel/picirq.o kernel/pipe.o kernel/proc.o kernel/spinlock.o kernel/string.o kernel/swtch.o kernel/syscall.o kernel/sysfile.o kernel/sysproc.o kernel/timer.o kernel/trapasm.o kernel/trap.o kernel/uart.o kernel/vectors.o kernel/vm.o kernel/bootmain.o kernel/bootasm.o kernel/multiboot.o kernel/data.o kernel/bootother.o kernel/initcode.o kernel/bio.d kernel/console.d kernel/exec.d kernel/file.d kernel/fs.d kernel/ide.d kernel/ioapic.d kernel/kalloc.d kernel/kbd.d kernel/lapic.d kernel/main.d kernel/mp.d kernel/picirq.d kernel/pipe.d kernel/proc.d kernel/spinlock.d kernel/string.d kernel/swtch.d kernel/syscall.d kernel/sysfile.d kernel/sysproc.d kernel/timer.d kernel/trapasm.d kernel/trap.d kernel/uart.d kernel/vectors.d kernel/vm.d kernel/bootmain.d kernel/bootasm.d kernel/multiboot.d kernel/data.d kernel/bootother.d kernel/initcode.d kernel/vectors.S kernel/bootblock kernel/bootblock.out kernel/bootother.out kernel/initcode.out kernel/kernel bootother initcode xv6.img user/bin user/cat user/echo user/forktest user/graphMaker user/grep user/init user/kill user/ln user/ls user/mkdir user/rm user/sh user/stressfs user/tester user/usertests user/wc user/zombie user/cat.o user/echo.o user/forktest.o user/graphMaker.o user/grep.o user/init.o user/kill.o user/ln.o user/ls.o user/mkdir.o user/rm.o user/sh.o user/stressfs.o user/tester.o user/usertests.o user/wc.o user/zombie.o user/ulib.o user/usys.o user/printf.o user/umalloc.o user/cat.d user/echo.d user/forktest.d user/graphMaker.d user/grep.d user/init.d user/kill.d user/ln.d user/ls.d user/mkdir.d user/rm.d user/sh.d user/stressfs.d user/tester.d user/usertests.d user/wc.d user/zombie.d user/ulib.d user/usys.d user/printf.d user/umalloc.d tools/mkfs tools/mkfs.o tools/mkfs.d fs fs.img .gdbinit .bochsrc dist
 Trying to build project using make
 make
 Makefile:149: kernel/bio.d: No such file or directory
@@ -49,6 +47,7 @@ Makefile:149: kernel/initcode.d: No such file or directory
 Makefile:149: user/cat.d: No such file or directory
 Makefile:149: user/echo.d: No such file or directory
 Makefile:149: user/forktest.d: No such file or directory
+Makefile:149: user/graphMaker.d: No such file or directory
 Makefile:149: user/grep.d: No such file or directory
 Makefile:149: user/init.d: No such file or directory
 Makefile:149: user/kill.d: No such file or directory
@@ -103,6 +102,8 @@ gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-
 	-M -MG user/init.c -MF user/init.d -MT user/init.d -MT user/init.o
 gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 \
 	-M -MG user/grep.c -MF user/grep.d -MT user/grep.d -MT user/grep.o
+gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 \
+	-M -MG user/graphMaker.c -MF user/graphMaker.d -MT user/graphMaker.d -MT user/graphMaker.o
 gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 \
 	-M -MG user/forktest.c -MF user/forktest.d -MT user/forktest.d -MT user/forktest.o
 gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 \
@@ -231,15 +232,15 @@ ld  -m    elf_i386 -nostdlib --omagic \
 dd if=/dev/zero of=xv6.img count=10000
 10000+0 records in
 10000+0 records out
-5120000 bytes (5.1 MB, 4.9 MiB) copied, 0.0244085 s, 210 MB/s
+5120000 bytes (5.1 MB, 4.9 MiB) copied, 0.0332887 s, 154 MB/s
 dd if=kernel/bootblock of=xv6.img conv=notrunc
 1+0 records in
 1+0 records out
-512 bytes copied, 0.000172481 s, 3.0 MB/s
+512 bytes copied, 0.000105537 s, 4.9 MB/s
 dd if=kernel/kernel of=xv6.img seek=1 conv=notrunc
 241+1 records in
 241+1 records out
-123748 bytes (124 kB, 121 KiB) copied, 0.00563071 s, 22.0 MB/s
+123676 bytes (124 kB, 121 KiB) copied, 0.000403173 s, 307 MB/s
 gcc -c  -iquote include -Wall -Werror -ggdb  -o tools/mkfs.o tools/mkfs.c
 gcc  tools/mkfs.o -o tools/mkfs
 mkdir -p fs
@@ -258,6 +259,9 @@ cp user/bin/echo fs/echo
 gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 -c -o user/forktest.o user/forktest.c
 ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --output=user/bin/forktest user/forktest.o user/ulib.o user/usys.o
 cp user/bin/forktest fs/forktest
+gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 -c -o user/graphMaker.o user/graphMaker.c
+ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --output=user/bin/graphMaker user/graphMaker.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+cp user/bin/graphMaker fs/graphMaker
 gcc  -I include -nostdinc -Wall -Werror -ggdb -fno-pic -fno-builtin -fno-strict-aliasing -fno-stack-protector -m32 -c -o user/grep.o user/grep.c
 ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --output=user/bin/grep user/grep.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
 cp user/bin/grep fs/grep
@@ -299,26 +303,27 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/zombie fs/zombie
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 410 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 432 blocks have been allocated
 balloc: write bitmap block at sector 28
-rm user/bin/ls user/bin/stressfs user/bin/grep user/bin/tester user/bin/kill user/bin/cat user/bin/mkdir user/bin/init user/bin/rm user/bin/echo user/bin/ln user/bin/usertests user/bin/sh user/bin/wc user/bin/zombie
+rm user/bin/ls user/bin/stressfs user/bin/grep user/bin/tester user/bin/kill user/bin/mkdir user/bin/cat user/bin/init user/bin/rm user/bin/echo user/bin/ln user/bin/graphMaker user/bin/usertests user/bin/sh user/bin/wc user/bin/zombie
 
 
 test build PASSED
@@ -343,24 +348,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 411 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 433 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -402,24 +408,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 411 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 433 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -461,24 +468,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 413 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 435 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -498,16 +506,16 @@ tester
 Spinning...
 
 **** PInfo ****
-pid: 1 tickets: 1 ticks: 16
+pid: 1 tickets: 1 ticks: 17
 pid: 2 tickets: 1 ticks: 19
 pid: 3 tickets: 1 ticks: 66
-pid: 4 tickets: 1 ticks: 73
-pid: 5 tickets: 1 ticks: 77
+pid: 4 tickets: 1 ticks: 72
+pid: 5 tickets: 1 ticks: 75
 pid: 6 tickets: 1 ticks: 79
-pid: 7 tickets: 1 ticks: 72
+pid: 7 tickets: 1 ticks: 73
 pid: 8 tickets: 1 ticks: 75
 pid: 9 tickets: 1 ticks: 72
-pid: 10 tickets: 1 ticks: 64
+pid: 10 tickets: 1 ticks: 65
 Number of processes in use 10
 Should print 1 then 2
 
@@ -534,24 +542,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 412 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 434 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -596,24 +605,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 417 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 439 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -632,18 +642,18 @@ $ tester
 tester
 
  ****PInfo before**** 
-pid: 1 tickets: 1 ticks: 18
+pid: 1 tickets: 1 ticks: 16
 pid: 2 tickets: 1 ticks: 19
 pid: 3 tickets: 10000 ticks: 12
 pid: 4 tickets: 5 ticks: 1
 Spinning...
 
  ****PInfo after**** 
-pid: 1 tickets: 1 ticks: 18
+pid: 1 tickets: 1 ticks: 16
 pid: 2 tickets: 1 ticks: 19
 pid: 3 tickets: 10000 ticks: 12
-pid: 4 tickets: 5 ticks: 88
-high: 12 12, low: 1 88
+pid: 4 tickets: 5 ticks: 100
+high: 12 12, low: 1 100
 Should print 1 then 2
 
 test high_sleep PASSED (20 of 20)
@@ -669,24 +679,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 413 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 435 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -729,24 +740,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 417 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 439 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -765,18 +777,18 @@ $ tester
 tester
 
  ****PInfo before**** 
-pid: 1 tickets: 1 ticks: 17
+pid: 1 tickets: 1 ticks: 16
 pid: 2 tickets: 1 ticks: 19
-pid: 3 tickets: 5 ticks: 12
+pid: 3 tickets: 5 ticks: 13
 pid: 4 tickets: 100000 ticks: 1
 Spinning...
 
  ****PInfo after**** 
-pid: 1 tickets: 1 ticks: 17
+pid: 1 tickets: 1 ticks: 16
 pid: 2 tickets: 1 ticks: 19
-pid: 3 tickets: 5 ticks: 12
-pid: 4 tickets: 100000 ticks: 190
-high: 1 190, low: 12 12
+pid: 3 tickets: 5 ticks: 13
+pid: 4 tickets: 100000 ticks: 168
+high: 1 168, low: 13 13
 Should print 1 then 2
 
 test high_tickets PASSED (10 of 10)
@@ -802,24 +814,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 418 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 440 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -836,27 +849,27 @@ cpu0: starting
 init: starting sh
 $ tester
 tester
-set low tickets for process A with pid: 4
-set high tickets for process B with pid: 5
+set low tickets for process A set high tickets for process B with pid: 5
 B completed first round of spinning...
 ***********getpinfo results************
-pid: 1 tickets: 1 ticks: 18 i: 0
-pid: 2 tickets: 1 ticks: 20 i: 1
-pid: 3 tickets: 100000000 ticks: 16 i: 2
+pid: 1 tickets: 1 ticks: 17 i: 0
+pid: 2 tickets: 1 ticks: 19 i: 1
+pid: 3 tickets: 100000000 ticks: 14 i: 2
 pid: 4 tickets: 1 ticks: 1 i: 3
-pid: 5 tickets: 1000 ticks: 95 i: 4
+pid: 5 tickets: 1000 ticks: 99 i: 4
 set low tickets for process B
-A completed first round of spinning..
+with pid: 4
+APassed 1/2 tests. Switching tickets...
+ completed first round of spinning..
 set high tickets for process A
-Passed 1/2 tests. Switching tickets...
 A completed spinning
 Checking for correct values...
 ***********getpinfo results************
-pid: 1 tickets: 1 ticks: 18 i: 0
-pid: 2 tickets: 1 ticks: 20 i: 1
-pid: 3 tickets: 100000000 ticks: 19 i: 2
-pid: 4 tickets: 1000 ticks: 186 i: 3
-pid: 5 tickets: 1 ticks: 96 i: 4
+pid: 1 tickets: 1 ticks: 17 i: 0
+pid: 2 tickets: 1 ticks: 19 i: 1
+pid: 3 tickets: 100000000 ticks: 17 i: 2
+pid: 4 tickets: 1000 ticks: 198 i: 3
+pid: 5 tickets: 1 ticks: 99 i: 4
 B completed spinning 
 Should print 1 then 2
 
@@ -884,24 +897,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 420 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 442 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -918,13 +932,14 @@ cpu0: starting
 init: starting sh
 $ tester
 tester
-Goal child ticks variance: <18
+Goal child ticks variance: <15
 
-Child ticks variance: 92
-Child ticks variance: 37
-Child ticks variance: 26
-Child ticks variance: 47
-Child ticks variance: 6
+Child ticks variance: 66
+Child ticks variance: 78
+Child ticks variance: 18
+Child ticks variance: 15
+Child ticks variance: 40
+Child ticks variance: 2
 Should print 1 then 2
 
 test feedback_converge PASSED (20 of 20)
@@ -950,24 +965,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 419 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 441 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -987,13 +1003,15 @@ tester
 Goal: Achieve <5% runtime for a child process
 
 Spinning...
-Child running percentages: pid 4 (55%), pid 5 (44%)
-Child running percentages: pid 4 (53%), pid 5 (46%)
-Child running percentages: pid 4 (58%), pid 5 (41%)
-Child running percentages: pid 4 (64%), pid 5 (35%)
-Child running percentages: pid 4 (77%), pid 5 (22%)
-Child running percentages: pid 4 (88%), pid 5 (11%)
-Child running percentages: pid 4 (96%), pid 5 (3%)
+Child running percentages: pid 4 (52%), pid 5 (47%)
+Child running percentages: pid 4 (49%), pid 5 (50%)
+Child running percentages: pid 4 (48%), pid 5 (51%)
+Child running percentages: pid 4 (46%), pid 5 (53%)
+Child running percentages: pid 4 (43%), pid 5 (56%)
+Child running percentages: pid 4 (40%), pid 5 (59%)
+Child running percentages: pid 4 (33%), pid 5 (66%)
+Child running percentages: pid 4 (9%), pid 5 (90%)
+Child running percentages: pid 4 (4%), pid 5 (95%)
 Should print 1 then 2
 
 test feedback_diverge PASSED (20 of 20)
@@ -1019,24 +1037,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 417 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 439 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -1053,68 +1072,68 @@ cpu0: starting
 init: starting sh
 $ tester
 tester
-Goal: Achieve variance of <50 in ticks for many processes with the same number of tickets
+Goal: Achieve variance of <55 in ticks for many processes with the same number of tickets
 
  ****PInfo before**** 
-pid: 1 tickets: 1 ticks: 16
+pid: 1 tickets: 1 ticks: 15
 pid: 2 tickets: 1 ticks: 19
-pid: 3 tickets: 16114 ticks: 24
-pid: 4 tickets: 5371 ticks: 9
-pid: 5 tickets: 5371 ticks: 3
-pid: 6 tickets: 5371 ticks: 7
-pid: 7 tickets: 5371 ticks: 7
-pid: 8 tickets: 5371 ticks: 8
-pid: 9 tickets: 5371 ticks: 5
-pid: 10 tickets: 5371 ticks: 6
+pid: 3 tickets: 16114 ticks: 23
+pid: 4 tickets: 5371 ticks: 15
+pid: 5 tickets: 5371 ticks: 10
+pid: 6 tickets: 5371 ticks: 8
+pid: 7 tickets: 5371 ticks: 6
+pid: 8 tickets: 5371 ticks: 7
+pid: 9 tickets: 5371 ticks: 4
+pid: 10 tickets: 5371 ticks: 7
 pid: 11 tickets: 5371 ticks: 9
-pid: 12 tickets: 5371 ticks: 9
-pid: 13 tickets: 5371 ticks: 0
+pid: 12 tickets: 5371 ticks: 5
+pid: 13 tickets: 5371 ticks: 3
 pid: 14 tickets: 5371 ticks: 7
-pid: 15 tickets: 5371 ticks: 8
-pid: 16 tickets: 5371 ticks: 8
-pid: 17 tickets: 5371 ticks: 3
-pid: 18 tickets: 5371 ticks: 5
-pid: 19 tickets: 5371 ticks: 8
-pid: 20 tickets: 5371 ticks: 6
-pid: 21 tickets: 5371 ticks: 3
+pid: 15 tickets: 5371 ticks: 7
+pid: 16 tickets: 5371 ticks: 3
+pid: 17 tickets: 5371 ticks: 11
+pid: 18 tickets: 5371 ticks: 11
+pid: 19 tickets: 5371 ticks: 9
+pid: 20 tickets: 5371 ticks: 8
+pid: 21 tickets: 5371 ticks: 5
 pid: 22 tickets: 5371 ticks: 8
-pid: 23 tickets: 5371 ticks: 8
-pid: 24 tickets: 5371 ticks: 11
-pid: 25 tickets: 5371 ticks: 5
-pid: 26 tickets: 5371 ticks: 10
-pid: 27 tickets: 5371 ticks: 6
-pid: 28 tickets: 5371 ticks: 4
-pid: 29 tickets: 5371 ticks: 4
+pid: 23 tickets: 5371 ticks: 3
+pid: 24 tickets: 5371 ticks: 5
+pid: 25 tickets: 5371 ticks: 6
+pid: 26 tickets: 5371 ticks: 9
+pid: 27 tickets: 5371 ticks: 5
+pid: 28 tickets: 5371 ticks: 9
+pid: 29 tickets: 5371 ticks: 5
 pid: 30 tickets: 5371 ticks: 3
-pid: 31 tickets: 5371 ticks: 4
-pid: 32 tickets: 5371 ticks: 0
-pid: 33 tickets: 5371 ticks: 5
-pid: 34 tickets: 5371 ticks: 1
-pid: 35 tickets: 5371 ticks: 0
-pid: 36 tickets: 5371 ticks: 0
-pid: 37 tickets: 5371 ticks: 1
-pid: 38 tickets: 5371 ticks: 1
-pid: 39 tickets: 5371 ticks: 1
-pid: 40 tickets: 5371 ticks: 1
-pid: 41 tickets: 5371 ticks: 1
-pid: 42 tickets: 5371 ticks: 2
-pid: 43 tickets: 5371 ticks: 0
-pid: 44 tickets: 5371 ticks: 1
-pid: 45 tickets: 5371 ticks: 0
-pid: 46 tickets: 5371 ticks: 2
-pid: 47 tickets: 5371 ticks: 0
-pid: 48 tickets: 5371 ticks: 2
-pid: 49 tickets: 5371 ticks: 1
+pid: 31 tickets: 5371 ticks: 6
+pid: 32 tickets: 5371 ticks: 3
+pid: 33 tickets: 5371 ticks: 6
+pid: 34 tickets: 5371 ticks: 3
+pid: 35 tickets: 5371 ticks: 4
+pid: 36 tickets: 5371 ticks: 3
+pid: 37 tickets: 5371 ticks: 3
+pid: 38 tickets: 5371 ticks: 2
+pid: 39 tickets: 5371 ticks: 2
+pid: 40 tickets: 5371 ticks: 3
+pid: 41 tickets: 5371 ticks: 2
+pid: 42 tickets: 5371 ticks: 5
+pid: 43 tickets: 5371 ticks: 2
+pid: 44 tickets: 5371 ticks: 4
+pid: 45 tickets: 5371 ticks: 1
+pid: 46 tickets: 5371 ticks: 0
+pid: 47 tickets: 5371 ticks: 1
+pid: 48 tickets: 5371 ticks: 1
+pid: 49 tickets: 5371 ticks: 4
 pid: 50 tickets: 5371 ticks: 0
-pid: 51 tickets: 5371 ticks: 0
-pid: 52 tickets: 5371 ticks: 0
-pid: 53 tickets: 5371 ticks: 1
-pid: 54 tickets: 5371 ticks: 0
+pid: 51 tickets: 5371 ticks: 2
+pid: 52 tickets: 5371 ticks: 2
+pid: 53 tickets: 5371 ticks: 0
+pid: 54 tickets: 5371 ticks: 2
 pid: 55 tickets: 5371 ticks: 0
-pid: 56 tickets: 5371 ticks: 1
-pid: 57 tickets: 5371 ticks: 0
-pid: 58 tickets: 5371 ticks: 0
-pid: 59 tickets: 5371 ticks: 1
+pid: 56 tickets: 5371 ticks: 2
+pid: 57 tickets: 5371 ticks: 3
+pid: 58 tickets: 5371 ticks: 1
+pid: 59 tickets: 5371 ticks: 0
 pid: 60 tickets: 5371 ticks: 0
 pid: 61 tickets: 5371 ticks: 0
 pid: 62 tickets: 5371 ticks: 0
@@ -1122,71 +1141,71 @@ pid: 63 tickets: 5371 ticks: 0
 pid: 64 tickets: 5371 ticks: 0
 Spinning...
  ****PInfo after**** 
-pid: 1 tickets: 1 ticks: 16
+pid: 1 tickets: 1 ticks: 15
 pid: 2 tickets: 1 ticks: 19
-pid: 3 tickets: 16114 ticks: 65
-pid: 4 tickets: 5371 ticks: 15
-pid: 5 tickets: 5371 ticks: 13
-pid: 6 tickets: 5371 ticks: 17
+pid: 3 tickets: 16114 ticks: 75
+pid: 4 tickets: 5371 ticks: 26
+pid: 5 tickets: 5371 ticks: 19
+pid: 6 tickets: 5371 ticks: 23
 pid: 7 tickets: 5371 ticks: 21
-pid: 8 tickets: 5371 ticks: 24
-pid: 9 tickets: 5371 ticks: 16
-pid: 10 tickets: 5371 ticks: 14
-pid: 11 tickets: 5371 ticks: 18
-pid: 12 tickets: 5371 ticks: 22
-pid: 13 tickets: 5371 ticks: 8
+pid: 8 tickets: 5371 ticks: 26
+pid: 9 tickets: 5371 ticks: 19
+pid: 10 tickets: 5371 ticks: 16
+pid: 11 tickets: 5371 ticks: 19
+pid: 12 tickets: 5371 ticks: 26
+pid: 13 tickets: 5371 ticks: 12
 pid: 14 tickets: 5371 ticks: 16
-pid: 15 tickets: 5371 ticks: 18
-pid: 16 tickets: 5371 ticks: 16
-pid: 17 tickets: 5371 ticks: 15
-pid: 18 tickets: 5371 ticks: 15
-pid: 19 tickets: 5371 ticks: 16
+pid: 15 tickets: 5371 ticks: 21
+pid: 16 tickets: 5371 ticks: 20
+pid: 17 tickets: 5371 ticks: 27
+pid: 18 tickets: 5371 ticks: 25
+pid: 19 tickets: 5371 ticks: 26
 pid: 20 tickets: 5371 ticks: 14
-pid: 21 tickets: 5371 ticks: 13
-pid: 22 tickets: 5371 ticks: 24
-pid: 23 tickets: 5371 ticks: 28
-pid: 24 tickets: 5371 ticks: 21
-pid: 25 tickets: 5371 ticks: 15
-pid: 26 tickets: 5371 ticks: 26
-pid: 27 tickets: 5371 ticks: 24
-pid: 28 tickets: 5371 ticks: 16
-pid: 29 tickets: 5371 ticks: 23
-pid: 30 tickets: 5371 ticks: 14
-pid: 31 tickets: 5371 ticks: 20
-pid: 32 tickets: 5371 ticks: 12
+pid: 21 tickets: 5371 ticks: 20
+pid: 22 tickets: 5371 ticks: 30
+pid: 23 tickets: 5371 ticks: 25
+pid: 24 tickets: 5371 ticks: 14
+pid: 25 tickets: 5371 ticks: 20
+pid: 26 tickets: 5371 ticks: 32
+pid: 27 tickets: 5371 ticks: 25
+pid: 28 tickets: 5371 ticks: 24
+pid: 29 tickets: 5371 ticks: 25
+pid: 30 tickets: 5371 ticks: 19
+pid: 31 tickets: 5371 ticks: 25
+pid: 32 tickets: 5371 ticks: 19
 pid: 33 tickets: 5371 ticks: 20
-pid: 34 tickets: 5371 ticks: 4
-pid: 35 tickets: 5371 ticks: 13
-pid: 36 tickets: 5371 ticks: 16
-pid: 37 tickets: 5371 ticks: 8
-pid: 38 tickets: 5371 ticks: 19
-pid: 39 tickets: 5371 ticks: 12
-pid: 40 tickets: 5371 ticks: 10
-pid: 41 tickets: 5371 ticks: 23
-pid: 42 tickets: 5371 ticks: 11
-pid: 43 tickets: 5371 ticks: 10
-pid: 44 tickets: 5371 ticks: 13
-pid: 45 tickets: 5371 ticks: 9
-pid: 46 tickets: 5371 ticks: 18
-pid: 47 tickets: 5371 ticks: 16
-pid: 48 tickets: 5371 ticks: 16
-pid: 49 tickets: 5371 ticks: 12
-pid: 50 tickets: 5371 ticks: 11
-pid: 51 tickets: 5371 ticks: 16
-pid: 52 tickets: 5371 ticks: 13
-pid: 53 tickets: 5371 ticks: 13
-pid: 54 tickets: 5371 ticks: 14
-pid: 55 tickets: 5371 ticks: 16
-pid: 56 tickets: 5371 ticks: 9
-pid: 57 tickets: 5371 ticks: 13
-pid: 58 tickets: 5371 ticks: 11
-pid: 59 tickets: 5371 ticks: 12
-pid: 60 tickets: 5371 ticks: 8
-pid: 61 tickets: 5371 ticks: 15
-pid: 62 tickets: 5371 ticks: 19
-pid: 63 tickets: 5371 ticks: 13
-pid: 64 tickets: 5371 ticks: 15
-Variance: ~21
+pid: 34 tickets: 5371 ticks: 11
+pid: 35 tickets: 5371 ticks: 24
+pid: 36 tickets: 5371 ticks: 22
+pid: 37 tickets: 5371 ticks: 13
+pid: 38 tickets: 5371 ticks: 30
+pid: 39 tickets: 5371 ticks: 17
+pid: 40 tickets: 5371 ticks: 19
+pid: 41 tickets: 5371 ticks: 28
+pid: 42 tickets: 5371 ticks: 14
+pid: 43 tickets: 5371 ticks: 18
+pid: 44 tickets: 5371 ticks: 18
+pid: 45 tickets: 5371 ticks: 10
+pid: 46 tickets: 5371 ticks: 19
+pid: 47 tickets: 5371 ticks: 18
+pid: 48 tickets: 5371 ticks: 18
+pid: 49 tickets: 5371 ticks: 19
+pid: 50 tickets: 5371 ticks: 16
+pid: 51 tickets: 5371 ticks: 22
+pid: 52 tickets: 5371 ticks: 24
+pid: 53 tickets: 5371 ticks: 15
+pid: 54 tickets: 5371 ticks: 20
+pid: 55 tickets: 5371 ticks: 23
+pid: 56 tickets: 5371 ticks: 16
+pid: 57 tickets: 5371 ticks: 21
+pid: 58 tickets: 5371 ticks: 18
+pid: 59 tickets: 5371 ticks: 15
+pid: 60 tickets: 5371 ticks: 11
+pid: 61 tickets: 5371 ticks: 23
+pid: 62 tickets: 5371 ticks: 22
+pid: 63 tickets: 5371 ticks: 12
+pid: 64 tickets: 5371 ticks: 16
+Variance: ~35
 Should print 1 then 2
 
 test stress_equal PASSED (20 of 20)
@@ -1212,24 +1231,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 418 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 440 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -1249,9 +1269,9 @@ tester
 Goal: Achieve <7% error in tick difference between a single high ticket process and many low ticket processes
 
  ****PInfo before**** 
-pid: 1 tickets: 1 ticks: 16
-pid: 2 tickets: 1 ticks: 19
-pid: 3 tickets: 16114 ticks: 36
+pid: 1 tickets: 1 ticks: 15
+pid: 2 tickets: 1 ticks: 21
+pid: 3 tickets: 16114 ticks: 37
 pid: 4 tickets: 5371 ticks: 1
 pid: 5 tickets: 5371 ticks: 1
 pid: 6 tickets: 5371 ticks: 1
@@ -1271,7 +1291,7 @@ pid: 19 tickets: 5371 ticks: 1
 pid: 20 tickets: 5371 ticks: 1
 pid: 21 tickets: 5371 ticks: 1
 pid: 22 tickets: 5371 ticks: 1
-pid: 23 tickets: 5371 ticks: 1
+pid: 23 tickets: 5371 ticks: 2
 pid: 24 tickets: 5371 ticks: 1
 pid: 25 tickets: 5371 ticks: 1
 pid: 26 tickets: 5371 ticks: 1
@@ -1299,7 +1319,7 @@ pid: 47 tickets: 5371 ticks: 1
 pid: 48 tickets: 5371 ticks: 1
 pid: 49 tickets: 5371 ticks: 1
 pid: 50 tickets: 5371 ticks: 1
-pid: 51 tickets: 5371 ticks: 1
+pid: 51 tickets: 5371 ticks: 2
 pid: 52 tickets: 5371 ticks: 1
 pid: 53 tickets: 5371 ticks: 1
 pid: 54 tickets: 5371 ticks: 1
@@ -1316,70 +1336,70 @@ pid: 64 tickets: 5371 ticks: 1
 Spinning...
 
  ****PInfo after**** 
-pid: 1 tickets: 1 ticks: 16
-pid: 2 tickets: 1 ticks: 19
-pid: 3 tickets: 16114 ticks: 79
-pid: 4 tickets: 5371 ticks: 18
+pid: 1 tickets: 1 ticks: 15
+pid: 2 tickets: 1 ticks: 21
+pid: 3 tickets: 16114 ticks: 97
+pid: 4 tickets: 5371 ticks: 21
 pid: 5 tickets: 5371 ticks: 20
-pid: 6 tickets: 5371 ticks: 15
-pid: 7 tickets: 5371 ticks: 22
-pid: 8 tickets: 5371 ticks: 15
-pid: 9 tickets: 5371 ticks: 18
-pid: 10 tickets: 5371 ticks: 12
-pid: 11 tickets: 5371 ticks: 18
-pid: 12 tickets: 5371 ticks: 18
-pid: 13 tickets: 5371 ticks: 16
-pid: 14 tickets: 5371 ticks: 11
-pid: 15 tickets: 5371 ticks: 20
-pid: 16 tickets: 5371 ticks: 14
-pid: 17 tickets: 322260 ticks: 908
-pid: 18 tickets: 5371 ticks: 16
-pid: 19 tickets: 5371 ticks: 14
-pid: 20 tickets: 5371 ticks: 18
-pid: 21 tickets: 5371 ticks: 11
-pid: 22 tickets: 5371 ticks: 19
-pid: 23 tickets: 5371 ticks: 17
-pid: 24 tickets: 5371 ticks: 22
-pid: 25 tickets: 5371 ticks: 15
-pid: 26 tickets: 5371 ticks: 21
-pid: 27 tickets: 5371 ticks: 18
-pid: 28 tickets: 5371 ticks: 15
-pid: 29 tickets: 5371 ticks: 17
-pid: 30 tickets: 5371 ticks: 13
-pid: 31 tickets: 5371 ticks: 12
-pid: 32 tickets: 5371 ticks: 11
-pid: 33 tickets: 5371 ticks: 5
-pid: 34 tickets: 5371 ticks: 17
-pid: 35 tickets: 5371 ticks: 20
-pid: 36 tickets: 5371 ticks: 17
-pid: 37 tickets: 5371 ticks: 14
-pid: 38 tickets: 5371 ticks: 15
-pid: 39 tickets: 5371 ticks: 13
-pid: 40 tickets: 5371 ticks: 18
-pid: 41 tickets: 5371 ticks: 17
-pid: 42 tickets: 5371 ticks: 22
-pid: 43 tickets: 5371 ticks: 14
-pid: 44 tickets: 5371 ticks: 13
-pid: 45 tickets: 5371 ticks: 14
-pid: 46 tickets: 5371 ticks: 11
-pid: 47 tickets: 5371 ticks: 17
-pid: 48 tickets: 5371 ticks: 16
-pid: 49 tickets: 5371 ticks: 18
-pid: 50 tickets: 5371 ticks: 19
-pid: 51 tickets: 5371 ticks: 9
-pid: 52 tickets: 5371 ticks: 18
-pid: 53 tickets: 5371 ticks: 17
-pid: 54 tickets: 5371 ticks: 17
-pid: 55 tickets: 5371 ticks: 15
-pid: 56 tickets: 5371 ticks: 18
-pid: 57 tickets: 5371 ticks: 17
-pid: 58 tickets: 5371 ticks: 14
-pid: 59 tickets: 5371 ticks: 26
-pid: 60 tickets: 5371 ticks: 20
-pid: 61 tickets: 5371 ticks: 18
-pid: 62 tickets: 5371 ticks: 13
-pid: 63 tickets: 5371 ticks: 11
-pid: 64 tickets: 5371 ticks: 14
+pid: 6 tickets: 5371 ticks: 18
+pid: 7 tickets: 5371 ticks: 23
+pid: 8 tickets: 5371 ticks: 16
+pid: 9 tickets: 5371 ticks: 24
+pid: 10 tickets: 5371 ticks: 16
+pid: 11 tickets: 5371 ticks: 21
+pid: 12 tickets: 5371 ticks: 23
+pid: 13 tickets: 5371 ticks: 22
+pid: 14 tickets: 5371 ticks: 15
+pid: 15 tickets: 5371 ticks: 22
+pid: 16 tickets: 5371 ticks: 21
+pid: 17 tickets: 322260 ticks: 1140
+pid: 18 tickets: 5371 ticks: 18
+pid: 19 tickets: 5371 ticks: 15
+pid: 20 tickets: 5371 ticks: 19
+pid: 21 tickets: 5371 ticks: 13
+pid: 22 tickets: 5371 ticks: 24
+pid: 23 tickets: 5371 ticks: 23
+pid: 24 tickets: 5371 ticks: 28
+pid: 25 tickets: 5371 ticks: 19
+pid: 26 tickets: 5371 ticks: 25
+pid: 27 tickets: 5371 ticks: 22
+pid: 28 tickets: 5371 ticks: 17
+pid: 29 tickets: 5371 ticks: 19
+pid: 30 tickets: 5371 ticks: 18
+pid: 31 tickets: 5371 ticks: 16
+pid: 32 tickets: 5371 ticks: 15
+pid: 33 tickets: 5371 ticks: 10
+pid: 34 tickets: 5371 ticks: 19
+pid: 35 tickets: 5371 ticks: 26
+pid: 36 tickets: 5371 ticks: 21
+pid: 37 tickets: 5371 ticks: 17
+pid: 38 tickets: 5371 ticks: 17
+pid: 39 tickets: 5371 ticks: 15
+pid: 40 tickets: 5371 ticks: 23
+pid: 41 tickets: 5371 ticks: 20
+pid: 42 tickets: 5371 ticks: 30
+pid: 43 tickets: 5371 ticks: 18
+pid: 44 tickets: 5371 ticks: 18
+pid: 45 tickets: 5371 ticks: 17
+pid: 46 tickets: 5371 ticks: 17
+pid: 47 tickets: 5371 ticks: 22
+pid: 48 tickets: 5371 ticks: 24
+pid: 49 tickets: 5371 ticks: 22
+pid: 50 tickets: 5371 ticks: 20
+pid: 51 tickets: 5371 ticks: 10
+pid: 52 tickets: 5371 ticks: 26
+pid: 53 tickets: 5371 ticks: 18
+pid: 54 tickets: 5371 ticks: 25
+pid: 55 tickets: 5371 ticks: 19
+pid: 56 tickets: 5371 ticks: 22
+pid: 57 tickets: 5371 ticks: 18
+pid: 58 tickets: 5371 ticks: 17
+pid: 59 tickets: 5371 ticks: 30
+pid: 60 tickets: 5371 ticks: 23
+pid: 61 tickets: 5371 ticks: 22
+pid: 62 tickets: 5371 ticks: 17
+pid: 63 tickets: 5371 ticks: 13
+pid: 64 tickets: 5371 ticks: 15
 Percent error: 0%
 Should print 1 then 2
 
@@ -1406,24 +1426,25 @@ ld  -m    elf_i386 -nostdlib --omagic --entry=main --section-start=.text=0x0 --o
 cp user/bin/tester fs/tester
 ./tools/mkfs fs.img fs
 used 29 (bit 1 ninode 26) free 29 total 1024
-echo
-README
 kill
-wc
-mkdir
-zombie
-ls
-tester
 ln
-forktest
-grep
-cat
-stressfs
 usertests
+cat
+echo
+tester
 init
-rm
+forktest
+zombie
+README
+ls
 sh
-balloc: first 415 blocks have been allocated
+mkdir
+grep
+stressfs
+rm
+wc
+graphMaker
+balloc: first 437 blocks have been allocated
 balloc: write bitmap block at sector 28
 rm user/bin/tester
 make qemu-nox CPUS=1
@@ -1444,8 +1465,8 @@ Goal: To have a random, not simply uniform, scheduler
 (Pid difference variance > 150, Direction change > 15%)
 
 Spinning...
-Variance: 389
-Direction change percentage: 62%
+Variance: 368
+Direction change percentage: 68%
 Should print 1 then 2
 
 test random PASSED (30 of 30)
